@@ -1,10 +1,10 @@
-data-class-builder
-===============  
+![Image](/img/2200x660.png)
+
 [ ![bintray](https://img.shields.io/bintray/v/blipinsk/maven/data-class-builder?color=success&label=bintray) ](https://bintray.com/blipinsk/maven/data-class-builder/_latestVersion)
 
 🏗 Automatically generating builders :construction_worker: for Kotlin `data classes`.
 
-*(This annotation processor **IS INCREMENTAL**)* 
+(***incremental***) 
   
 Usage  
 =====  
@@ -19,7 +19,7 @@ Usage
     }  
     ```  
   
- 2. Add to `@DataClassBuilder` annotation your `data class` (without `companion object`)
+ 2. Add to `@DataClassBuilder` annotation your `data class`
     ```kotlin
     @DataClassBuilder  
     data class User(  
@@ -36,7 +36,7 @@ Usage
     //1. Java-style builder
     val jane = dataClassBuilder(User::class)
         .name("Jane")
-        .age(12)
+        .age(30)
         .build()
     ```
     or
@@ -44,23 +44,23 @@ Usage
     //2. Kotlin DSL builder
     val jane = buildDataClass(User::class) {
         name = "Jane"
-        age = 12
+        age = 30
     }
     ```
     or
     ```kotlin
-    //3. companion Java-style builder (generated if companion is present)
+    //3. Java-style builder through companion (generated if companion is present)
     val jane = User.dataClassBuilder()
         .name("Jane")
-        .age(12)
+        .age(30)
         .build()
     ```
     or
     ```kotlin
-    //4. companion Kotlin DSL builder (generated if companion is present)
+    //4. Kotlin DSL builder through companion (generated if companion is present)
     val jane = User.buildDataClass {
         name = "Jane"
-        age = 12
+        age = 30
     }
     ```
   
@@ -77,6 +77,32 @@ dependencies {
     implementation "com.bartoszlipinski:data-class-builder:0.1.0"  
 }  
 ```  
+
+
+Important
+---------
+The presence of `data class` parameters is verified **in runtime**.
+
+E.g.
+
+ 1. For `data class`:
+    ```kotlin
+    @DataClassBuilder  
+    data class User(  
+        val name: String = "Anonymous",  
+        val age: Int // <-- no default value specified
+    )
+    ```
+    
+ 2. When creating:
+    ```kotlin
+    buildDataClass(User::class) {
+        name = "John"
+        // not setting the necessary `age`
+    }
+    ```
+
+3. :point_up: this will crash :boom: **in runtime** :point_up:
   
 Developed by  
 ============  
