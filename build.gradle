@@ -1,0 +1,43 @@
+ext {
+    configuration = [
+            versionCode   : 1,
+            versionName   : VERSION_NAME,
+            compileVersion: 27,
+            minSdk        : 9,
+            targetSdk     : 27
+    ]
+
+    bintrayUser = ""
+    bintrayKey = ""
+}
+
+buildscript {
+    ext.kotlin_version = '1.3.50'
+
+    repositories {
+        maven { url 'https://maven.google.com' }
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.9.17"
+        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.17"
+        // clean build bintrayUpload
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://dl.bintray.com/blipinsk/maven/' }
+        maven { url 'https://maven.google.com' }
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

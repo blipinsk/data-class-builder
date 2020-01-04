@@ -1,0 +1,7 @@
+include ':runtime'
+project(':runtime').projectDir = new File(settingsDir, './data-class-builder')
+
+include ':compiler'
+project(':compiler').projectDir = new File(settingsDir, './data-class-builder-compiler')
+
+include ':sample'
