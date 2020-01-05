@@ -1,11 +1,13 @@
 ![Image](/img/2200x660.png)
-
+  
 [ ![bintray](https://img.shields.io/bintray/v/blipinsk/maven/data-class-builder?color=success&label=bintray) ](https://bintray.com/blipinsk/maven/data-class-builder/_latestVersion) 
-[ ![maven-central](https://img.shields.io/maven-central/v/com.bartoszlipinski/data-class-builder?label=maven-central) ](https://search.maven.org/search?q=g:com.bartoszlipinski%20AND%20a:data-class-builder) 
+[ ![maven-central](https://img.shields.io/maven-central/v/com.bartoszlipinski/data-class-builder?label=maven-central) ](https://search.maven.org/search?q=g:com.bartoszlipinski%20AND%20a:data-class-builder)
+
+</p>
 
 🏗 Automatically generating builders :construction_worker: for Kotlin `data classes`.
 
-(***incremental***) 
+<sub><sup><b><i>(incremental)</b></i></sup></sub>
   
 Usage  
 =====  
