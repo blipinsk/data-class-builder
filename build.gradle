@@ -1,14 +1,11 @@
 ext {
     configuration = [
-            versionCode   : 1,
-            versionName   : VERSION_NAME,
-            compileVersion: 27,
-            minSdk        : 9,
-            targetSdk     : 27
+            versionCode: 1,
+            versionName: VERSION_NAME
     ]
 
-    bintrayUser = ""
-    bintrayKey = ""
+    bintrayUser = project.findProperty('BINTRAY_USERNAME') ?: ''
+    bintrayKey = project.findProperty('BINTRAY_API_KEY') ?: ''
 }
 
 buildscript {
